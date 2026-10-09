@@ -1,0 +1,5 @@
+cascade_id,db_path,is_valid_sqlite,quick_check_status,file_size_bytes,step_count,title,created_time_ms,last_modified_time_ms,workspace_uri,trajectory_id
+c99ca0b3-a658-48ae-9dba-33eed0571a99,%USERPROFILE%/.gemini/antigravity-ide/conversations/c99ca0b3-a658-48ae-9dba-33eed0571a99.db,True,ok,4915200,329,Locate Session Manager Code,1727806754000,1728219286000,,traj-c99ca0b3-a658-48ae-9dba-33eed0571a99
+686e30bc-6e67-4f84-b395-5b901354f926,%USERPROFILE%/.gemini/antigravity-ide/conversations/686e30bc-6e67-4f84-b395-5b901354f926.db,True,ok,1245184,84,Workspace Initialization & Diagnostics,1727810000000,1728220000000,,traj-686e30bc-6e67-4f84-b395-5b901354f926
+00e209cd-a697-47c1-8469-313f251d9687,%USERPROFILE%/.gemini/antigravity-ide/conversations/00e209cd-a697-47c1-8469-313f251d9687.db,True,ok,819200,42,Telemetry Evaluation Session,1727820000000,1728230000000,,traj-00e209cd-a697-47c1-8469-313f251d9687
+529d7a92-cd26-4669-ae65-8e91ad7ff9c5,%USERPROFILE%/.gemini/antigravity-ide/conversations/529d7a92-cd26-4669-ae65-8e91ad7ff9c5.db,True,ok,2150400,156,Tool Invocation Integrity Analysis,1727830000000,1728240000000,,traj-529d7a92-cd26-4669-ae65-8e91ad7ff9c5
