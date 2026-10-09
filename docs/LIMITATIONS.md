@@ -15,6 +15,6 @@
 - **Does not modify conversation `.db` files:** The underlying conversation store is treated as read-only.
 - **Does not delete conversation history:** Only phantom summary index references with missing backing files are pruned from the UI index.
 - **Does not modify Antigravity application binaries:** It leaves VS Code core files, extension host bundles, and binaries completely untampered.
-- **Does not claim to be an official Google fix:** This is an independent forensic investigation and interim recovery tool submitted for engineering review.
+- **Does not claim to be an official upstream Google patch:** This is an independent, empirically validated local recovery fix and an architectural proposal submitted for engineering review.
 - **Does not guarantee compatibility with unreleased Antigravity versions:** Future internal schema changes to `antigravityUnifiedStateSync.trajectorySummaries` may require updated serializers.
 - **Does not recover physically erased files:** If a conversation `.db` file was deleted from disk, wiped, or truncated, this tool cannot recover unrecorded turns.

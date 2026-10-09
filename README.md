@@ -12,14 +12,13 @@
 ---
 
 ### Project Status
-| Stage | Status |
-| :--- | :---: |
-| **Investigation** | Complete |
-| **Root Cause** | Identified |
-| **Recovery** | Validated |
-| **Restart Validation** | Passed |
-| **Fault Injection** | Passed |
-| **Product Fix** | Not claimed (Architectural proposal only) |
+| Stage | Status | Details |
+| :--- | :---: | :--- |
+| **Forensic Investigation** | Complete | Root cause identified and empirically proven |
+| **Local Recovery Fix** | Tested & Working | 100% restored (57/57 missing sessions restored, 0 DB data loss) |
+| **Restart Durability** | Passed & Verified | Reconciled state survives cold restarts & `saveAllTopics` |
+| **Fault Injection** | Passed & Verified | Simulated drift converged back to 100% store parity |
+| **Upstream IDE Engine Patch** | Proposed Architecture | Submitted to Google engineering for native in-engine adoption |
 
 ---
 
@@ -125,10 +124,10 @@ trajectorySummaries
 ### What This Project Does Not Do
 - Does not modify conversation `.db` files.
 - Does not delete conversation history.
-- Does not modify Antigravity application binaries.
-- Does not claim to be an official Google fix.
-- Does not guarantee compatibility with future Antigravity releases.
-- Does not claim to repair every possible form of lost conversation data.
+- Does not modify Antigravity application binaries (operates externally via safe SQLite state reconciliation).
+- Does not claim to be an official upstream Google patch (it is a validated local recovery tool and proposed in-engine architectural fix).
+- Does not guarantee compatibility with future unreleased internal schema changes.
+- Does not claim to repair physically deleted or truncated database files.
 
 ---
 
@@ -208,12 +207,15 @@ antigravity-chat-history-fix/
 │   └── AUTHORITATIVE_CONVERSATION_MANIFEST.csv        # Sanitized inventory schema and sample rows
 │
 └── prompts/                                           # Prompt library for agent workflows
-    ├── README.md
-    ├── diagnostic.md
-    ├── master-recovery.md
-    ├── verification.md
-    └── emergency-rollback.md
+    ├── README.md                                      # Prompt library index
+    ├── opencode-fix-prompt.md                         # Tailored prompt for OpenCode
+    ├── kilo-code-cli-fix-prompt.md                    # Tailored prompt for Kilo Code CLI
+    ├── codex-fix-prompt.md                            # Tailored prompt for OpenAI Codex
+    ├── master-recovery.md                             # Universal / Claude Code recovery prompt
+    ├── diagnostic.md                                  # Safe read-only audit prompt
+    ├── verification.md                                # Verification and durability test prompt
+    └── emergency-rollback.md                          # Backup restoration prompt
 ```
 
 > [!NOTE]
-> The repository also preserves the investigation prompts used during the forensic reconstruction in the [`prompts/`](prompts/) directory.
+> Tested prompts for specific coding agents (**OpenCode**, **Kilo Code CLI**, **OpenAI Codex**, and **Claude Code / Antigravity**) are preserved in the [`prompts/`](prompts/) directory.
